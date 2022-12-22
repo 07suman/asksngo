@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!---Coding By CodingLab | www.codinglabweb.com--->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Registration Form in HTML CSS</title>
+    <!---Custom CSS File--->
+    <link href="assets/css/register.css" rel="stylesheet" />
+  </head>
+  <body>
+    <section class="container">
+      <header>
+        For management of One Stop Centre for Women in Kamrup Metropolitan
+        District, Assam
+      </header>
+      <form name="submit-to-google-sheet" action="#" class="form">
+        <div class="input-box">
+          <label>Full Name</label>
+          <input
+            type="text"
+            placeholder="Enter full name"
+            name="Full Name"
+            required
+          />
+        </div>
+
+        <div class="input-box">
+          <label>ID Proof</label>
+
+          <div class="column">
+            <div class="input-box">
+              <label>Aadhaar Number</label>
+              <input
+                type="number"
+                placeholder="Enter Aadhaar number"
+                name="Aadhar Number"
+                required
+              />
+            </div>
+          </div>
+          <div class="input-box">
+            <label>Voter ID</label>
+            <input
+              type=""
+              placeholder="Enter Voter ID"
+              name="Voter ID"
+              required
+            />
+          </div>
+
+          <div class="input-box">
+            <label>Pan Number</label>
+            <input
+              type=""
+              placeholder="Enetr Pan Number"
+              name="Pan Number"
+              required
+            />
+          </div>
+        </div>
+        <div class="input-box">
+          <label>Father's Name</label>
+          <input
+            type="text"
+            placeholder="Enter father name"
+            name="Father Name"
+            required
+          />
+        </div>
+        <div class="input-box">
+          <label>Mother's Name</label>
+          <input
+            type="text"
+            placeholder="Enter mother name"
+            name="Mother Name"
+            required
+          />
+        </div>
+        <br />
+        <div class="address">
+          <label>Residential Address</label>
+          <textarea
+            class="Residential"
+            type="message"
+            placeholder="Enter street address"
+            name="Residential Address"
+            required
+          ></textarea>
+        </div>
+        <br />
+        <div class="address">
+          <label>Correspondence Address</label>
+          <textarea
+            class="Residential"
+            type="message"
+            placeholder="Enter street address"
+            name="Correspondence Address"
+            required
+          ></textarea>
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <label>Contact Number</label>
+            <input
+              type="number"
+              placeholder="Enter contact number"
+              name="Contact Number"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label>Emergency Contact Number </label>
+            <input
+              type="number"
+              placeholder="Enter Emergency contact number"
+              name="Emergency Contact Number"
+              required
+            />
+          </div>
+        </div>
+
+        <button>Submit</button>
+      </form>
+    </section>
+
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbwQ-bIs6Tx4yAXqtJzlqXgxcClU8_dyqTrYg6sy0fsR5c4aN3xVYSgzGELneMG0phbu/exec";
+      const form = document.forms["submit-to-google-sheet"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => console.log("Success!", response))
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
+  </body>
+</html>
